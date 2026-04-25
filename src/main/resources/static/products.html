@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenCrate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">🛒 GreenCrate</div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html">Orders</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Our Products</h1>
+        <div id="products-grid" class="products-grid">
+            <!-- Products will be loaded here -->
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        loadProducts();
+    </script>
+</body>
+</html>

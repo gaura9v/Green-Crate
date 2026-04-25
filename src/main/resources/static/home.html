@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenCrate - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            padding-right: 120px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            outline: none;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0.8rem 2rem;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #1b5e20;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2e7d32;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Responsive styles for home page */
+        @media screen and (max-width: 768px) {
+            .hero {
+                padding: 2rem 1rem;
+                min-height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .search-container {
+                max-width: 100%;
+            }
+            
+            .search-bar {
+                padding: 1rem 1.2rem;
+                padding-right: 100px;
+                font-size: 1rem;
+            }
+            
+            .search-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .cta-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+                gap: 1rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero {
+                padding: 1.5rem 0.8rem;
+                min-height: 40vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .search-bar {
+                padding: 0.8rem 1rem;
+                padding-right: 80px;
+                font-size: 0.9rem;
+            }
+            
+            .search-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .feature-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">🛒 GreenCrate</div>
+        <div class="nav-links">
+            <a href="home.html" class="active">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html">Orders</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to GreenCrate</h1>
+        <p>Your one-stop destination for fresh groceries and essentials</p>
+        
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search for products...">
+            <button class="search-btn" onclick="searchProducts()">Search</button>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="products.html" class="cta-btn btn-primary">Shop Now</a>
+            <a href="products.html" class="cta-btn btn-secondary">Browse All</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Get your groceries delivered at your doorstep</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💯</div>
+            <h3>Fresh Quality</h3>
+            <p>100% fresh and organic products guaranteed</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Best Prices</h3>
+            <p>Competitive prices with great deals</p>
+        </div>
+    </div>
+
+    <script>
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchProducts();
+            }
+        });
+    </script>
+</body>
+</html>
