@@ -22,8 +22,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Replace with the actual URL of your Spring Boot backend
-SPRING_BOOT_API_URL = "http://localhost:8081/api/products"
+# GreenCrate Backend Products API
+BACKEND_API_URL = "http://localhost:8081/api/products"
 
 from typing import Optional, Dict, Any
 
@@ -35,9 +35,9 @@ class ChatResponse(BaseModel):
     reply: str
 
 def fetch_products():
-    """Fetches the current product catalog from the Spring Boot backend."""
+    """Fetches the current product catalog from the backend API."""
     try:
-        response = requests.get(SPRING_BOOT_API_URL, timeout=5)
+        response = requests.get(BACKEND_API_URL, timeout=5)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
@@ -134,7 +134,7 @@ Customer Profile (Personalize recommendations based on this):
     elif "greencrate" in user_message_lower and ("creator" in user_message_lower or "who" in user_message_lower):
         return ChatResponse(reply="GreenCrate was created by Gaurav Salunke.")
     elif "greencrate" in user_message_lower and ("created" in user_message_lower or "built" in user_message_lower or "developed" in user_message_lower):
-        return ChatResponse(reply="GreenCrate is built with Java Spring Boot, using a Spring Boot backend to power the ecommerce and grocery shopping experience.")
+        return ChatResponse(reply="GreenCrate is built with Python and Django, using a robust REST API backend to power the ecommerce and grocery shopping experience.")
     
     # 1. Fetch current products
     products = fetch_products()

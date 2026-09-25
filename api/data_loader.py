@@ -33,7 +33,7 @@ SAMPLE_PRODUCTS = [
 ]
 
 def load_initial_products():
-    """Populates the database with initial products if none exist, matching DataLoader.java"""
+    """Populates the database with initial sample products if none exist."""
     if Product.objects.count() == 0:
         products = [Product(**p) for p in SAMPLE_PRODUCTS]
         Product.objects.bulk_create(products)

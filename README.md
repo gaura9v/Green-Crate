@@ -76,7 +76,7 @@ When customers submit feedback via [feedback.html](file:///Users/gaurav/Download
 
 ## API Endpoints Reference
 
-All endpoints return and accept JSON matching the original Java Spring Boot API:
+RESTful JSON API documentation:
 
 ### Products API
 | Method | Endpoint | Description |

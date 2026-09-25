@@ -1,6 +1,5 @@
 """
 Django settings for ecommerce_backend project.
-Converted from Spring Boot Java Backend.
 """
 
 from pathlib import Path
@@ -63,7 +62,7 @@ ROOT_URLCONF = 'ecommerce_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'src' / 'main' / 'resources' / 'static'],
+        'DIRS': [BASE_DIR / 'static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +110,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'src' / 'main' / 'resources' / 'static',
+    BASE_DIR / 'static',
 ]
 
 # CORS Settings - Allow frontend to communicate without restriction

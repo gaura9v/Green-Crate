@@ -3,7 +3,7 @@ from api.data_loader import load_initial_products, SAMPLE_PRODUCTS
 from api.models import Product
 
 class Command(BaseCommand):
-    help = 'Loads initial sample products into the database if empty, matching Spring Boot DataLoader'
+    help = 'Loads initial sample products into the database if empty'
 
     def add_arguments(self, parser):
         parser.add_argument(

@@ -1,51 +1,31 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
-### Python / Django ###
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Database
 *.sqlite3
 db.sqlite3
+
+# Environments
 .venv
 .venv/
 venv
 venv/
-*.log
+ENV/
+env/
+
+# Environment variables & secrets
 .env
 .env.*
 !.env.example
+
+# Logs
+*.log
+
+# Operating System & Editor Files
 .DS_Store
 *.DS_Store
+.vscode/
+.idea/
 /user_analytics.csv

@@ -17,7 +17,7 @@ from .serializers import (
 
 
 # ==========================================
-# PRODUCT CONTROLLER REPLICATION
+# PRODUCT API
 # ==========================================
 
 @api_view(['GET', 'POST'])
@@ -75,7 +75,7 @@ def products_by_category(request, category):
 
 
 # ==========================================
-# CART CONTROLLER REPLICATION
+# CART API
 # ==========================================
 
 @api_view(['POST'])
@@ -91,7 +91,7 @@ def cart_create(request):
 @api_view(['GET'])
 def cart_detail(request, cart_id):
     """
-    GET /api/cart/{cartId} - Get cart by id (creates new cart if not found, matching Java logic)
+    GET /api/cart/{cartId} - Get cart by id (creates new cart if not found)
     """
     cart = Cart.objects.filter(id=cart_id).first()
     if not cart:
@@ -150,7 +150,7 @@ def cart_remove_item(request, cart_id, item_id):
 
 
 # ==========================================
-# ORDER CONTROLLER REPLICATION
+# ORDER API
 # ==========================================
 
 @api_view(['POST'])
@@ -224,7 +224,7 @@ def order_update_status(request, order_id):
 
 
 # ==========================================
-# FEEDBACK CONTROLLER REPLICATION
+# FEEDBACK API
 # ==========================================
 
 def send_feedback_notification_email(feedback):
@@ -300,10 +300,9 @@ def feedback_list_create(request):
 
 def serve_frontend(request, path=''):
     """
-    Serves static HTML, CSS, JS files directly from src/main/resources/static
-    so that frontend behaves identically to Spring Boot's static resource hosting.
+    Serves static HTML, CSS, JS files directly from the static directory.
     """
-    static_root = os.path.join(settings.BASE_DIR, 'src', 'main', 'resources', 'static')
+    static_root = os.path.join(settings.BASE_DIR, 'static')
 
     if not path or path == '/':
         target_path = os.path.join(static_root, 'home.html')
