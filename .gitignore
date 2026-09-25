@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Python / Django ###
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+db.sqlite3
+.venv
+.venv/
+venv
+venv/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+*.DS_Store
+/user_analytics.csv

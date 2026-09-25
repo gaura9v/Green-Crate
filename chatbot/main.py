@@ -2,14 +2,14 @@ import os
 import requests
 import csv
 from datetime import datetime
-import google.generativeai as genai
+import google.genai as genai
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 # Configure Google Gemini API Key
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDWe3wwRDX9N6G3a5Yyjrw3SCgipjobKEo")
-genai.configure(api_key=GEMINI_API_KEY)
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 app = FastAPI()
 
@@ -157,8 +157,10 @@ Assistant:"""
 
     try:
         # Use the gemini-1.5-flash model, which is free and fast
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        response = model.generate_content(system_prompt)
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents=system_prompt
+        )
         
         reply_text = response.text
         if not reply_text:
