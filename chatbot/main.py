@@ -8,8 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 # Configure Google Gemini API Key
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyDWe3wwRDX9N6G3a5Yyjrw3SCgipjobKEo")
-client = genai.Client(api_key=GEMINI_API_KEY)
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 app = FastAPI()
 
@@ -134,7 +133,7 @@ Customer Profile (Personalize recommendations based on this):
     elif "greencrate" in user_message_lower and ("creator" in user_message_lower or "who" in user_message_lower):
         return ChatResponse(reply="GreenCrate was created by Gaurav Salunke.")
     elif "greencrate" in user_message_lower and ("created" in user_message_lower or "built" in user_message_lower or "developed" in user_message_lower):
-        return ChatResponse(reply="GreenCrate is built with Python and Django, using a robust REST API backend to power the ecommerce and grocery shopping experience.")
+        return ChatResponse(reply="GreenCrate uses a Java backend to power its e-commerce and grocery shopping experience.")
     
     # 1. Fetch current products
     products = fetch_products()
@@ -155,7 +154,11 @@ CRITICAL RULE 2: If the user's input is complete gibberish, not correctly typed,
 User: {user_message}
 Assistant:"""
 
+    if not GEMINI_API_KEY:
+        raise HTTPException(status_code=503, detail="GEMINI_API_KEY is not configured.")
+
     try:
+        client = genai.Client(api_key=GEMINI_API_KEY)
         # Use the gemini-1.5-flash model, which is free and fast
         response = client.models.generate_content(
             model="gemini-1.5-flash",

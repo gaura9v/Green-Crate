@@ -23,6 +23,13 @@ env/
 # Logs
 *.log
 
+# Java build output
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Chatbot analytics output
+/chatbot/user_analytics.csv
+
 # Operating System & Editor Files
 .DS_Store
 *.DS_Store
